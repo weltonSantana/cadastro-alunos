@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Ficha do Aluno {% endblock %}
+
+{% block content %}
+
+
+
+<!-- Deletar cadastro -->
+ 
+  <div class="card text-center offset-1 col-10 shadow p-3 mb-5 bg-body rounded">
+    <div class="card-header">
+      Deletar Cadastro
+    </div>
+    <div class="card-body">
+        <form method="post">{% csrf_token %}
+            <p class="text-center">Tem certeza que deseja deletar o cadastro de "{{ object }}" ?</p>
+            {{  form|crispy }}
+            <input class="btn btn-primary" type="submit" value="Confirmar">
+        </form>
+    </div>
+  </div>
+  
+   
+
+{% endblock %}

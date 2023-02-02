@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %} Ficha do Aluno {% endblock %}
+
+{% block content %}
+
+<!-- Ficha do aluno cadastrado -->
+
+
+<div id="card" class="card text-center offset-1 col-10 shadow p-3 mb-5 bg-body rounded">
+  <div class="card-body">
+
+    <h1 class="card-subtitle mb-2">Ficha Do Aluno</h1>
+      {% if object.semestreFim %}
+      <h6 class="card-subtitle mb-2 text-muted">Nome:</h6> 
+      <h5 class="card-title">{{object.nome}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Curso:</h6> 
+      <p class="card-text">{{object.curso}}</p>
+      <h6 class="card-subtitle mb-2 text-muted">Matricula:</h6> 
+      <p class="card-text">{{object.matricula}}</p>
+      <h6 class="card-subtitle mb-2 text-muted">Inicio do Semestre:</h6> 
+      <p class="card-text">{{object.semestreInicio}}</p>
+      <h6 class="card-subtitle mb-2 text-muted">Fim do Semestre:</h6> 
+      <p class="card-text">{{object.semestreFim}}</p>
+      <h6 class="card-subtitle mb-2 text-muted">Vinculo:</h6> 
+      <p class="card-text">{{object.situacao}}</p>
+      {% else %}
+      <h6 class="card-subtitle mb-2 text-muted">Nome:</h6> 
+      <h5 class="card-title">{{object.nome}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Curso:</h6> 
+      <p class="card-text">{{object.curso}}</p>
+      <h6 class="card-subtitle mb-2 text-muted">Matricula:</h6> 
+      <p class="card-text">{{object.matricula}}</p>
+      <h6 class="card-subtitle mb-2 text-muted">Inicio do Semestre:</h6> 
+      <p class="card-text">{{object.semestreInicio}}</p>
+      <h6 class="card-subtitle mb-2 text-muted">Vinculo:</h6> 
+      <p class="card-text">{{object.situacao}}</p>
+      {% endif %}
+      <a class="btn btn-primary" href="{% url 'att-view' pk=aluno.pk %}" role="button">
+        <i class="fa-solid fa-user-pen"></i> Editar
+      </a>
+      <a class="btn btn-primary" href="{% url 'deletar-cad' pk=aluno.pk %}" role="button">
+        <i class="fa-solid fa-trash"></i> Apagar
+      </a>
+  </div>
+</div>
+
+  
+   
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Ficha do Aluno {% endblock %}
+
+{% block content %}
+
+  
+<!-- Atualizar cadastro -->
+<div id="card-add" class="card text-center offset-1 col-10 shadow p-3 mb-5 bg-body rounded border border-white border-2" style="width: 50rem;">
+    <h1>Atualizar Cadastro</h1>
+        <form class="row g-3 needs-validation" method="POST">{% csrf_token %}
+            <div class="offset-1 col-10">
+                {{ form|crispy }}
+            <input class="btn btn-primary" type="submit" value="Atualizar">
+            </div>
+        </form> 
+</div>
+
+
+{% endblock %}

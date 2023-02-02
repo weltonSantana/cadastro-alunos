@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Novo Cadastro {% endblock %}
+
+{% block content %}
+
+<!-- Fazer novo cadastro -->
+<div id="card-add" class="card text-center offset-1 col-10 shadow p-3 mb-5 bg-body rounded border border-white border-2" style="width: 50rem;">
+    <div class="col-10 list-div">
+        <h1>Cadastro</h1>
+            <form class="row g-3" method="POST">{% csrf_token %}
+                <div class="offset-1 col-10">
+                    {{ form|crispy }}
+                <input class="btn btn-primary" type="submit" value="Finalizar Cadastro">
+                </div>
+            </form> 
+    </div>
+</div>
+
+
+
+{% endblock %}

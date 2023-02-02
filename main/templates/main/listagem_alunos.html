@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista De Alunos {% endblock %}
+
+{% block content %}
+    
+  <div class="offset-1 col-10 list-div">
+
+
+    <!-- Listagem de alunos -->
+
+
+
+    <a class="btn btn-primary" role="button" href="{% url 'novo-cad'%}">
+        <i class="fa-solid fa-user-plus"></i> Cadastrar Aluno
+    </a>
+
+    <div class="col-9 search-div">
+      <form method="GET" id="search-form">
+        <input class="form-control" type="text" id="nome" name="nome" value="{{ request.GET.nome }}" placeholder="Buscar Aluno">
+        <button class="fa-solid fa-magnifying-glass btn btn-primary" type="submit"></button>
+        <a class="btn btn-secondary fa-solid fa-broom" href="{% url 'index'%}"></a>
+        
+      </form>
+        
+    </div>
+    
+
+    <!-- Tabelas -->
+    <table class="table table-hover shadow p-3 mb-5 bg-body rounded border border-white border-2">
+      <thead>
+        <tr>
+          <th scope="col">Nome</th>
+          <th scope="col">Matricula</th>
+          <th scope="col">Vinculo</th>
+          <th scope="col">Visualizar</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for aluno in object_list %}
+        <tr>
+          <td>{{aluno.nome}}</td>
+          <td>{{aluno.matricula}}</td>
+          <td>{{aluno.situacao}}</td>
+          <td><a id="bottom-link" href="{% url 'ficha-view' pk=aluno.pk %}"><i class="fa-regular fa-eye"></i></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+
+
+    <!-- Paginação -->
+    <div class="text-center">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {% endif %}
+  
+          <li class="page-item"><span class="page-link">{{page_obj.number}} de {{page_obj.paginator.num_pages}}.</span></li>
+     
+          {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+     
+
+  </div>
+
+  
+{% endblock %}
