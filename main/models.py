@@ -39,19 +39,6 @@ class Aluno(models.Model):
         verbose_name_plural =  'Alunos'
         ordering = ['nome'] 
     
-    def formataData(self):
-
-        semestreInicio = self.semestreInicio 
-        semestreInicio = list(semestreInicio)
-        pre = semestreInicio[:2]
-        pos = semestreInicio[2:6]
-
-        pre = pre[0] + pre[1]
-        pos = pos[0] + pos[1] + pos[2] + pos[3] 
-
-        semestreInicio = pre + '/' + pos
-
-        return semestreInicio
     
 
     def clean(self):
@@ -84,5 +71,33 @@ class Aluno(models.Model):
 
         return self.matricula
 
+
+    def formataDataInicio(self):
+        
+        semestreInicio = str(self.semestreInicio)
+        semestreInicio = list(semestreInicio)
+        pre = semestreInicio[:1]
+        pos = semestreInicio[1:5]
+
+        pre = pre[0]
+        pos = pos[0] + pos[1] + pos[2] + pos[3]
+
+        semestreInicio = pre + '/' + pos
+       
+        return semestreInicio
+
+    def formataDataFim(self):
+        
+        semestreFim = str(self.semestreFim)
+        semestreFim = list(semestreFim)
+        pre = semestreFim[:1]
+        pos = semestreFim[1:5]
+
+        pre = pre[0]
+        pos = pos[0] + pos[1] + pos[2] + pos[3]
+
+        semestreFim = pre + '/' + pos
+       
+        return semestreFim
 
 

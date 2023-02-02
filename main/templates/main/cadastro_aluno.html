@@ -19,9 +19,9 @@
       <h6 class="card-subtitle mb-2 text-muted">Matricula:</h6> 
       <p class="card-text">{{object.matricula}}</p>
       <h6 class="card-subtitle mb-2 text-muted">Inicio do Semestre:</h6> 
-      <p class="card-text">{{object.formataData}}</p>
+      <p class="card-text">{{object.formataDataInicio}}</p>
       <h6 class="card-subtitle mb-2 text-muted">Fim do Semestre:</h6> 
-      <p class="card-text">{{object.semestreFim}}</p>
+      <p class="card-text">{{object.formataDataFim}}</p>
       <h6 class="card-subtitle mb-2 text-muted">Vinculo:</h6> 
       <p class="card-text">{{object.situacao}}</p>
       {% else %}
@@ -32,7 +32,7 @@
       <h6 class="card-subtitle mb-2 text-muted">Matricula:</h6> 
       <p class="card-text">{{object.matricula}}</p>
       <h6 class="card-subtitle mb-2 text-muted">Inicio do Semestre:</h6> 
-      <p class="card-text">{{object.semestreInicio}}</p>
+      <p class="card-text">{{object.formataDataInicio}}</p>
       <h6 class="card-subtitle mb-2 text-muted">Vinculo:</h6> 
       <p class="card-text">{{object.situacao}}</p>
       {% endif %}
