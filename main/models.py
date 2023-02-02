@@ -39,9 +39,19 @@ class Aluno(models.Model):
         verbose_name_plural =  'Alunos'
         ordering = ['nome'] 
     
-    # def dataAtual(self):
-    #     datetime(self.semestreInicio).strftime('%m/%Y')
-      
+    def formataData(self):
+
+        semestreInicio = self.semestreInicio 
+        semestreInicio = list(semestreInicio)
+        pre = semestreInicio[:2]
+        pos = semestreInicio[2:6]
+
+        pre = pre[0] + pre[1]
+        pos = pos[0] + pos[1] + pos[2] + pos[3] 
+
+        semestreInicio = pre + '/' + pos
+
+        return semestreInicio
     
 
     def clean(self):
