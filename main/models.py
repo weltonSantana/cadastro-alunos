@@ -60,15 +60,15 @@ class Aluno(models.Model):
       
         if self.semestreInicio > 99999 or self.semestreInicio < 10000:
             raise ValidationError('Não é possivel!') 
+  
+        if self.semestreFim != None:
+             Fim = int(convert(pos2))
 
         Inicio = int(convert(pos1))
 
-        if self.semestreFim > 99999 or self.semestreFim < 10000:
-            raise ValidationError('Não é possivel!') 
-        else:
-          if self.semestreFim != None:
-             Fim = int(convert(pos2))
-         
+        
+    
+
         if self.semestreFim == None:
             return self.semestreFim
         elif Fim <= Inicio:
